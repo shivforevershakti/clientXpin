@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme="light"] {
+  --color-surface: 248 249 251;
+  --color-surface-raised: 255 255 255;
+  --color-surface-sunken: 236 238 242;
+  --color-border: 224 227 232;
+  --color-fg: 23 26 31;
+  --color-fg-muted: 100 107 118;
+  --color-accent: 79 70 229;
+  --color-accent-fg: 255 255 255;
+  --color-success: 16 163 74;
+  --color-warning: 202 138 4;
+  --color-danger: 220 38 38;
+  --color-chart: 234 140 60;
+}
+
+[data-theme="dark"] {
+  --color-surface: 10 12 16;
+  --color-surface-raised: 18 21 27;
+  --color-surface-sunken: 6 7 10;
+  --color-border: 33 37 46;
+  --color-fg: 236 238 242;
+  --color-fg-muted: 148 155 168;
+  --color-accent: 99 132 245;
+  --color-accent-fg: 255 255 255;
+  --color-success: 52 211 153;
+  --color-warning: 250 204 21;
+  --color-danger: 248 113 113;
+  --color-chart: 240 148 74;
+}
+
+[data-theme="high-contrast"] {
+  --color-surface: 0 0 0;
+  --color-surface-raised: 10 10 10;
+  --color-surface-sunken: 0 0 0;
+  --color-border: 255 255 255;
+  --color-fg: 255 255 255;
+  --color-fg-muted: 230 230 230;
+  --color-accent: 255 214 0;
+  --color-accent-fg: 0 0 0;
+  --color-success: 0 255 128;
+  --color-warning: 255 214 0;
+  --color-danger: 255 64 64;
+  --color-chart: 255 214 0;
+}
+
+* {
+  border-color: rgb(var(--color-border));
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(var(--color-surface));
+  color: rgb(var(--color-fg));
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Visible keyboard-focus ring for every interactive element, app-wide. */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-accent));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  background: rgb(var(--color-accent));
+  color: rgb(var(--color-accent-fg));
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.skeleton-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    rgb(var(--color-surface-sunken)) 0px,
+    rgb(var(--color-surface-raised)) 40px,
+    rgb(var(--color-surface-sunken)) 80px
+  );
+  background-size: 800px 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-border));
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
