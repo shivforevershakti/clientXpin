@@ -1,7 +1,7 @@
 import { StreamChunk, WidgetActionResponse } from "../types";
 
 const BASE =
-  "https://dynamic-engine-server-git-main-shiv-forever.vercel.app/api";
+  "https://dynamic-engine-server.vercel.app";
 
 /**
  * Streams a dashboard generation request.
