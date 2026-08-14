@@ -2,51 +2,139 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
 :root,
 [data-theme="light"] {
   --color-surface: 248 249 251;
   --color-surface-raised: 255 255 255;
   --color-surface-sunken: 236 238 242;
+
   --color-border: 224 227 232;
+
   --color-fg: 23 26 31;
   --color-fg-muted: 100 107 118;
+
   --color-accent: 79 70 229;
   --color-accent-fg: 255 255 255;
+
   --color-success: 16 163 74;
   --color-warning: 202 138 4;
   --color-danger: 220 38 38;
+
   --color-chart: 234 140 60;
+
+  /* ---------------------------------------------------------
+     Pie / Donut Chart Tokens
+     --------------------------------------------------------- */
+
+  --color-chart-1: 59 130 246;     /* Blue */
+  --color-chart-2: 139 92 246;     /* Purple */
+  --color-chart-3: 16 185 129;     /* Emerald */
+  --color-chart-4: 245 158 11;     /* Amber */
+  --color-chart-5: 239 68 68;      /* Red */
+  --color-chart-6: 100 116 139;    /* Slate */
+
+  --color-chart-track: 236 238 242;
+  --color-chart-glow: 99 102 241;
+
+  /* Chart text */
+  --color-chart-label: 255 255 255;
+  --color-chart-center: 23 26 31;
 }
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
 
 [data-theme="dark"] {
   --color-surface: 10 12 16;
   --color-surface-raised: 18 21 27;
   --color-surface-sunken: 6 7 10;
+
   --color-border: 33 37 46;
+
   --color-fg: 236 238 242;
   --color-fg-muted: 148 155 168;
+
   --color-accent: 99 132 245;
   --color-accent-fg: 255 255 255;
+
   --color-success: 52 211 153;
   --color-warning: 250 204 21;
   --color-danger: 248 113 113;
+
   --color-chart: 240 148 74;
+
+  /* ---------------------------------------------------------
+     Pie / Donut Chart Tokens
+     --------------------------------------------------------- */
+
+  --color-chart-1: 59 130 246;     /* Blue */
+  --color-chart-2: 168 85 247;     /* Purple */
+  --color-chart-3: 16 185 129;     /* Emerald */
+  --color-chart-4: 245 158 11;     /* Amber */
+  --color-chart-5: 248 113 113;    /* Red */
+  --color-chart-6: 100 116 139;    /* Slate */
+
+  --color-chart-track: 30 34 43;
+  --color-chart-glow: 99 102 241;
+
+  /* Chart text */
+  --color-chart-label: 255 255 255;
+  --color-chart-center: 236 238 242;
 }
+
+
+/* =========================================================
+   HIGH CONTRAST THEME
+   ========================================================= */
 
 [data-theme="high-contrast"] {
   --color-surface: 0 0 0;
   --color-surface-raised: 10 10 10;
   --color-surface-sunken: 0 0 0;
+
   --color-border: 255 255 255;
+
   --color-fg: 255 255 255;
   --color-fg-muted: 230 230 230;
+
   --color-accent: 255 214 0;
   --color-accent-fg: 0 0 0;
+
   --color-success: 0 255 128;
   --color-warning: 255 214 0;
   --color-danger: 255 64 64;
+
   --color-chart: 255 214 0;
+
+  /* ---------------------------------------------------------
+     Pie / Donut Chart Tokens
+     --------------------------------------------------------- */
+
+  --color-chart-1: 0 191 255;      /* Cyan */
+  --color-chart-2: 255 0 255;      /* Magenta */
+  --color-chart-3: 0 255 128;      /* Green */
+  --color-chart-4: 255 214 0;      /* Yellow */
+  --color-chart-5: 255 64 64;      /* Red */
+  --color-chart-6: 255 255 255;    /* White */
+
+  --color-chart-track: 40 40 40;
+  --color-chart-glow: 255 214 0;
+
+  /* Chart text */
+  --color-chart-label: 255 255 255;
+  --color-chart-center: 255 255 255;
 }
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 * {
   border-color: rgb(var(--color-border));
@@ -61,10 +149,20 @@ body,
 body {
   background-color: rgb(var(--color-surface));
   color: rgb(var(--color-fg));
-  transition: background-color 200ms ease, color 200ms ease;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
 }
 
-/* Visible keyboard-focus ring for every interactive element, app-wide. */
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+/* Visible keyboard-focus ring for every interactive element,
+   app-wide. */
+
 :focus-visible {
   outline: 2px solid rgb(var(--color-accent));
   outline-offset: 2px;
@@ -76,18 +174,27 @@ body {
   top: -100%;
   left: 1rem;
   z-index: 100;
+
   background: rgb(var(--color-accent));
   color: rgb(var(--color-accent-fg));
+
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+
   font-size: 0.875rem;
   font-weight: 600;
+
   transition: top 150ms ease;
 }
 
 .skip-link:focus {
   top: 1rem;
 }
+
+
+/* =========================================================
+   SKELETON
+   ========================================================= */
 
 .skeleton-shimmer {
   background-image: linear-gradient(
@@ -96,17 +203,25 @@ body {
     rgb(var(--color-surface-raised)) 40px,
     rgb(var(--color-surface-sunken)) 80px
   );
+
   background-size: 800px 100%;
 }
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
 
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--color-border));
   border-radius: 999px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
